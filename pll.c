@@ -31,6 +31,7 @@ double Freq_PIOut = 0 ;
 double Wt = 0;
 double WtSum = 0 ;
 
+double UgMax = 0.5f ;
 
 // Integration Queue and the pointer
 double QueueSum[SIZE_OF_QUEUE] = {0.0} ;
@@ -164,7 +165,11 @@ void InitPLL(void)
 
 double UpdatePLL( double UgridSampled)
 {
-    UgridPLL = UgridSampled ;
+    UgMax = (UgMax > UgridSampled)?UgMax:UgridSampled ;
+
+    UgMax = (UgMax > 320)? 320 : UgMax ; // Limit the maximum of UgMax ;
+
+    UgridPLL = UgridSampled / UgMax ;
     UgridMulCosWt_N = UgridPLL * CosWt ;
 
     // Delayed Sum Calc
