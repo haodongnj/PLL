@@ -114,7 +114,7 @@ void InitPLL(void)
 	MeanValue_NminusOne = 0;
 	MeanValue_N = 0;
     // Initialize the QUeue
-	for (int i_pll = 0; i_pll < SIZE_OF_QUEUE; i_pll++)
+	for (i_pll = 0; i_pll < SIZE_OF_QUEUE; i_pll++)
 	{
 		QueueSum[i_pll] = 0.0 ;
 	}
