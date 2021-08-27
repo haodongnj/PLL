@@ -9,6 +9,10 @@
 #define M_1_PI 0.31830988618379067153803535746773
 #endif
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void init_fll(FLL_t *s, float k_gain_sogi, float gamma, float dt, float fc){
     s->center_freq_radians = fc * 2 * M_PI;
     s->freq_Hz = fc ;
@@ -43,7 +47,11 @@ float calc_fll(FLL_t *s, float signal){
     s->fll_integrator += - s->gamma * ef * s->update_period ;
 
     s->freq_radians = s->center_freq_radians + s->fll_integrator ;
-    s->freq_Hz = s->freq_radians * M_1_PI;
+    s->freq_Hz = s->freq_radians * M_1_PI * 0.5;
 
     return s->freq_Hz ;
 }
+
+#ifdef __cplusplus
+}
+#endif

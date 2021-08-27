@@ -1,6 +1,10 @@
 #ifndef PLL_SOGI_H
 #define PLL_SOGI_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct PLL_SOGI{
     float sogi_forward_integrator_output ;
     float sogi_backward_integrator_output ;
@@ -16,5 +20,9 @@ typedef struct PLL_SOGI{
 
 void init_pll_sogi(PLL_SOGI_t *s, float kp, float ki, float dt, float fc);
 float calc_pll_sogi(PLL_SOGI_t *s, float signal) ;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

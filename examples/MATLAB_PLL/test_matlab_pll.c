@@ -1,11 +1,5 @@
-/******************		Test-PLL		********************
- * * Date:	2016.10.27
- * *
- */
-
 #include <stdio.h>
-#include <stdlib.h>
-#include "pll.h"
+#include <pll_sogi.h>
 #include <math.h>
 
 extern double Freq;

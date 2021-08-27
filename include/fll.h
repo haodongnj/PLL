@@ -1,6 +1,10 @@
 #ifndef FLL_H
 #define FLL_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct FLL{
     float k_gain_sogi ;
     float gamma ;
@@ -15,5 +19,9 @@ typedef struct FLL{
 
 void init_fll(FLL_t *s, float k_gain_sogi, float gamma, float dt, float fc);
 float calc_fll(FLL_t *s, float signal) ;
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

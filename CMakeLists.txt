@@ -10,3 +10,6 @@ add_library(PLL STATIC
 target_include_directories(PLL PRIVATE
         include
         )
+
+
+add_subdirectory(examples)
