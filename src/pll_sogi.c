@@ -6,6 +6,9 @@
 #define M_PI 3.14159265358979323846
 #endif
 
+#ifdef __cplusplus
+extern "C"{
+#endif
 
 void init_pll_sogi(PLL_SOGI_t *s, float kp, float ki, float dt, float fc){
     s->center_angle_freq = fc * 2 * M_PI;
@@ -41,3 +44,7 @@ float calc_pll_sogi(PLL_SOGI_t *s, float signal){
 
     return s->phase_output ;
 }
+
+#ifdef __cplusplus
+}
+#endif
