@@ -11,6 +11,7 @@ typedef struct PLL_SOGI {
   float phase_output;
   float loop_filter_kp;
   float loop_filter_ki;
+  float ke;
   float angle_freq;
   float update_period;
   float center_angle_freq;
@@ -22,12 +23,13 @@ typedef struct PLL_SOGI {
  * @brief initialize PLL_SOGI_t struct
  *
  * @param s pointer to PLL_SOGI_t struct
+ * @param ke gain for error part of SOGI
  * @param kp proportional gain for loop filter of PLL
  * @param ki integrational gain for loop filter of PLL
  * @param dt period for calculation
  * @param fc center frequency in Hz
  */
-void init_pll_sogi(PLL_SOGI_t *s, float kp, float ki, float dt, float fc);
+void init_pll_sogi(PLL_SOGI_t *s, float ke, float kp, float ki, float dt, float fc);
 
 /**
  * @brief calculation of PLL.

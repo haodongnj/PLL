@@ -10,10 +10,11 @@
 extern "C"{
 #endif
 
-void init_pll_sogi(PLL_SOGI_t *s, float kp, float ki, float dt, float fc){
+void init_pll_sogi(PLL_SOGI_t *s, float ke, float kp, float ki, float dt, float fc){
     s->center_angle_freq = fc * 2 * M_PI;
     s->angle_freq = s->center_angle_freq  ;
     s->update_period = dt;
+    s->ke = ke;
     s->loop_filter_ki = ki * s->update_period ;
     s->loop_filter_kp = kp ;
     s->phase_output = 0 ;
@@ -26,6 +27,7 @@ float calc_pll_sogi(PLL_SOGI_t *s, float signal){
     float error ;
 
     error = signal - s->sogi_forward_integrator_output ;
+    error = s->ke * error;
     error -= s->sogi_backward_integrator_output * s->angle_freq ;
     error *= s->angle_freq ;
     s->sogi_forward_integrator_output += error * s->update_period;
