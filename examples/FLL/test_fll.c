@@ -2,6 +2,11 @@
 #include <fll.h>
 #include <math.h>
 
+/// in case of compiling under MS windows
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 int main(int argc, char const *argv[])
 {
     FLL_t s ;

@@ -2,11 +2,16 @@
 #include <pll_sogi.h>
 #include <stdio.h>
 
+/// in case of compiling under MS windows
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 int main() {
   PLL_SOGI_t s;
   double phase = 0, sine_wave = 0;
 
-  init_pll_sogi(&s, 0.1, 1, 1e-4, 50);
+  init_pll_sogi(&s, 2.0, 0.1, 1, 1e-4, 50);
 
   FILE *fp = fopen("result.txt", "w");
 
