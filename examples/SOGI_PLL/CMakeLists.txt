@@ -6,4 +6,6 @@ add_executable(test_sogi_pll
 	../../src/pll_sogi.c)
 
 target_include_directories(test_sogi_pll PRIVATE ../../include)
-target_link_libraries(test_sogi_pll m)
+if(UNIX)
+	target_link_libraries(test_sogi_pll m)
+endif(UNIX)

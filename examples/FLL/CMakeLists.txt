@@ -6,4 +6,6 @@ add_executable(test_fll
 	../../src/fll.c)
 
 target_include_directories(test_fll PRIVATE ../../include)
-target_link_libraries(test_fll PRIVATE m)
+if(UNIX)
+	target_link_libraries(test_fll PRIVATE m)
+endif(UNIX)
