@@ -26,24 +26,24 @@ int main() {
         sine_wave = sin(theta);
         phase = calc_pll_sogi(&s, amplitude * sine_wave);
         fprintf(fp, "%lf,%lf,%lf,%lf,%lf\r\n",
-            sine_wave,
-            phase,
-            sin(phase),
-            s.angle_freq,
-            i * ts);
+                sine_wave,
+                phase,
+                sin(phase),
+                s.angle_freq,
+                i * ts);
     }
 
     // change frequency to f2 here
-    for (int i = 1e4 ; i < 2e4; i++) {
-      theta += 2 * M_PI * f2 * ts;
-      sine_wave = sin(theta);
-      phase = calc_pll_sogi(&s, amplitude * sine_wave);
-      fprintf(fp, "%lf,%lf,%lf,%lf,%lf\r\n",
-              sine_wave,
-              phase,
-              sin(phase),
-              s.angle_freq,
-              i * ts);
+    for (int i = 1e4; i < 2e4; i++) {
+        theta += 2 * M_PI * f2 * ts;
+        sine_wave = sin(theta);
+        phase = calc_pll_sogi(&s, amplitude * sine_wave);
+        fprintf(fp, "%lf,%lf,%lf,%lf,%lf\r\n",
+                sine_wave,
+                phase,
+                sin(phase),
+                s.angle_freq,
+                i * ts);
     }
 
     fclose(fp);

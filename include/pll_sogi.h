@@ -6,16 +6,16 @@ extern "C" {
 #endif
 
 typedef struct PLL_SOGI {
-  float sogi_forward_integrator_output;
-  float sogi_backward_integrator_output;
-  float phase_output;
-  float loop_filter_kp;
-  float loop_filter_ki;
-  float ke;
-  float angle_freq;
-  float update_period;
-  float center_angle_freq;
-  float loop_filter_sum;
+    float sogi_forward_integrator_output;
+    float sogi_backward_integrator_output;
+    float phase_output;
+    float loop_filter_kp;
+    float loop_filter_ki;
+    float ke;
+    float angle_freq;
+    float update_period;
+    float center_angle_freq;
+    float loop_filter_sum;
 
 } PLL_SOGI_t;
 
@@ -44,4 +44,4 @@ float calc_pll_sogi(PLL_SOGI_t *s, float signal);
 }
 #endif
 
-#endif  // INCLUDE_PLL_SOGI_H_
+#endif// INCLUDE_PLL_SOGI_H_

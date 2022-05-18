@@ -6,15 +6,15 @@ extern "C" {
 #endif
 
 typedef struct FLL {
-  float k_gain_sogi;
-  float gamma;
-  float sogi_forward_integrator_output;
-  float sogi_backward_integrator_output;
-  float update_period;
-  float freq_radians;
-  float center_freq_radians;
-  float freq_Hz;
-  float fll_integrator;
+    float k_gain_sogi;
+    float gamma;
+    float sogi_forward_integrator_output;
+    float sogi_backward_integrator_output;
+    float update_period;
+    float freq_radians;
+    float center_freq_radians;
+    float freq_Hz;
+    float fll_integrator;
 } FLL_t;
 
 /**
@@ -41,4 +41,4 @@ float calc_fll(FLL_t *s, float signal);
 }
 #endif
 
-#endif  // INCLUDE_FLL_H_
+#endif// INCLUDE_FLL_H_
